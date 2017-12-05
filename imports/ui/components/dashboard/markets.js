@@ -16,6 +16,6 @@ Template.MarketsPanel.helpers({
 
 Template.Market.helpers({
     formatMarketStartTime(date) {
-        return moment(date).format('DD-MMM @ HH:mm');
+        return moment(date).format('DD/MM @ HH:mm');
     },
 });
