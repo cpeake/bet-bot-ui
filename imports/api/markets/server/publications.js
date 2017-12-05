@@ -21,7 +21,6 @@ Meteor.publish('markets.played', function marketsPlayedPublication() {
     sod.setHours(0, 0, 0, 0);
     return Markets.find(
         {
-            played: true,
             marketStartTime: {$gt: sod}
         },
         {
