@@ -1,0 +1,39 @@
+<template name="InstructionPanel">
+    <div class="card text-white bg-dark mb-3">
+        <h6 class="card-header p-2">Recent Instructions</h6>
+        <table class="table table-dark table-striped table-sm">
+            <thead>
+            <tr>
+                <th class="d-none d-sm-table-cell">Placed</th>
+                <th>Strategy</th>
+                <th>Market</th>
+                <th class="d-none d-sm-table-cell">Selection</th>
+                <th class="d-none d-md-table-cell">Type</th>
+                <th>Side</th>
+                <th>Stake</th>
+                <th>Price</th>
+                <th class="d-none d-sm-table-cell">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each recentInstructions}}
+                {{> Instruction}}
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>
+
+<template name="Instruction">
+    <tr>
+        <td class="d-none d-sm-table-cell">{{formatTime placedDate}}</td>
+        <td>{{formatStrategy customerStrategyRef}}</td>
+        <td>{{formatMarket marketId}}</td>
+        <td class="d-none d-sm-table-cell">{{formatRunner instruction.selectionId}}</td>
+        <td class="d-none d-md-table-cell">{{formatOrderType instruction.orderType}}</td>
+        <td>{{formatSide instruction.side}}</td>
+        <td>{{formatMoney sizeMatched}}</td>
+        <td>{{formatPrice averagePriceMatched}}</td>
+        <td class="d-none d-sm-table-cell">{{formatOrderStatus orderStatus}}</td>
+    </tr>
+</template>
