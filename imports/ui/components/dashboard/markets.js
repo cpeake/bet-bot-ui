@@ -10,7 +10,15 @@ Template.MarketsPanel.onCreated(function marketsPanelOnCreated() {
 
 Template.MarketsPanel.helpers({
     markets() {
-        return Markets.find();
+        return Markets.find(
+            {
+                played: {$exists: false},
+                marketStartTime: {$gt: new Date()}
+            },
+            {
+                sort: { marketStartTime: 1 },
+            }
+        );
     },
 });
 
