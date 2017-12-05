@@ -60,9 +60,7 @@ Template.registerHelper('formatRunner', function(selectionId) {
 });
 
 Template.registerHelper('formatStrategy', function(strategyRef) {
-    console.log(strategyRef);
     let strategy = Strategies.findOne({strategyRef: strategyRef});
-    console.log(strategy)
     if (strategy) return strategy.name;
     return strategyRef;
 });
