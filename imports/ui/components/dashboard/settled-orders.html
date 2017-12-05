@@ -1,0 +1,43 @@
+<template name="SettledOrderPanel">
+    <div class="card text-white bg-dark mb-3">
+        <h6 class="card-header p-2">Settled Orders</h6>
+        <table class="table table-dark table-striped table-sm">
+            <thead>
+            <tr>
+                <th class="d-none d-sm-table-cell">Placed</th>
+                <th class="d-none d-md-table-cell">Settled</th>
+                <th>Strategy</th>
+                <th>Market</th>
+                <th class="d-none d-sm-table-cell">Selection</th>
+                <th class="d-none d-md-table-cell">Type</th>
+                <th class="d-none d-sm-table-cell">Side</th>
+                <th class="d-none d-sm-table-cell">Stake</th>
+                <th class="d-none d-sm-table-cell">Price</th>
+                <th>Outcome</th>
+                <th>PnL</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each settledOrders}}
+                {{> SettledOrder}}
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>
+
+<template name="SettledOrder">
+    <tr>
+        <td class="d-none d-sm-table-cell">{{formatTime placedDate}}</td>
+        <td class="d-none d-md-table-cell">{{formatTime settledDate}}</td>
+        <td>{{customerStrategyRef}}</td>
+        <td>{{formatMarket marketId}}</td>
+        <td class="d-none d-sm-table-cell">{{formatRunner selectionId}}</td>
+        <td class="d-none d-md-table-cell">{{formatOrderType orderType}}</td>
+        <td class="d-none d-sm-table-cell">{{formatSide side}}</td>
+        <td class="d-none d-sm-table-cell">{{formatMoney sizeSettled}}</td>
+        <td class="d-none d-sm-table-cell">{{formatPrice priceMatched}}</td>
+        <td>{{formatOutcome betOutcome}}</td>
+        <td>{{formatMoney profit}}</td>
+    </tr>
+</template>

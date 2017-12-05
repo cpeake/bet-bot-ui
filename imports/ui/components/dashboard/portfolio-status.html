@@ -1,0 +1,47 @@
+<template name="PortfolioStatusPanel">
+    <div class="card text-white bg-dark mb-3">
+        <h6 class="card-header p-2">Portfolio Status</h6>
+        <table class="table table-dark table-striped table-sm">
+            <thead>
+            <tr>
+                <th>Strategy</th>
+                <th>Daily PnL</th>
+                <th>WTD PnL</th>
+                <th class="d-none d-sm-table-cell">MTD PnL</th>
+                <th class="d-none d-sm-table-cell">YTD PnL</th>
+                <th class="d-none d-md-table-cell">Lifetime PnL</th>
+            </tr>
+            </thead>
+            <tbody>
+                {{#each statistics}}
+                    {{> PortfolioStatus}}
+                {{/each}}
+                {{#each totals}}
+                    {{> PortfolioStatusTotals}}
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>
+
+<template name="PortfolioStatus">
+    <tr>
+        <td>{{strategyRef}}</td>
+        <td>{{formatMoney dailyPnL}}</td>
+        <td>{{formatMoney weeklyPnL}}</td>
+        <td class="d-none d-sm-table-cell">{{formatMoney monthlyPnL}}</td>
+        <td class="d-none d-sm-table-cell">{{formatMoney yearlyPnL}}</td>
+        <td class="d-none d-md-table-cell">{{formatMoney lifetimePnL}}</td>
+    </tr>
+</template>
+
+<template name="PortfolioStatusTotals">
+    <tr>
+        <td class="font-weight-bold">&nbsp;</td>
+        <td class="font-weight-bold">{{formatMoney dailyPnL}}</td>
+        <td class="font-weight-bold">{{formatMoney weeklyPnL}}</td>
+        <td class="d-none d-sm-table-cell font-weight-bold">{{formatMoney monthlyPnL}}</td>
+        <td class="d-none d-sm-table-cell font-weight-bold">{{formatMoney yearlyPnL}}</td>
+        <td class="d-none d-md-table-cell font-weight-bold">{{formatMoney lifetimePnL}}</td>
+    </tr>
+</template>
