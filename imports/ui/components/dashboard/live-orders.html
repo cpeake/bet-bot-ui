@@ -27,7 +27,7 @@
 <template name="LiveOrder">
     <tr>
         <td class="d-none d-sm-table-cell">{{formatTime placedDate}}</td>
-        <td>{{customerStrategyRef}}</td>
+        <td>{{formatStrategy customerStrategyRef}}</td>
         <td>{{formatMarket marketId}}</td>
         <td class="d-none d-sm-table-cell">{{formatRunner selectionId}}</td>
         <td class="d-none d-md-table-cell">{{formatOrderType orderType}}</td>
