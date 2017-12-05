@@ -5,6 +5,7 @@ import "./markets.html";
 Template.MarketsPanel.onCreated(function marketsPanelOnCreated() {
     this.autorun(() => {
         this.subscribe('markets.future');
+        this.subscribe('markets.played');
     });
 });
 
