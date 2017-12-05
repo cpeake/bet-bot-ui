@@ -26,7 +26,7 @@
 
 <template name="PortfolioStatus">
     <tr>
-        <td>{{strategyRef}}</td>
+        <td>{{formatStrategy strategyRef}}</td>
         <td>{{formatMoney dailyPnL}}</td>
         <td>{{formatMoney weeklyPnL}}</td>
         <td class="d-none d-sm-table-cell">{{formatMoney monthlyPnL}}</td>

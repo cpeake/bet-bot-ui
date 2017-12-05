@@ -1,5 +1,6 @@
 import { Markets } from '../../../imports/api/markets/markets.js';
 import { Runners } from '../../../imports/api/runners/runners.js';
+import { Strategies } from '../../../imports/api/strategies/strategies.js';
 
 import { accounting } from 'meteor/iain:accounting'
 
@@ -56,6 +57,14 @@ Template.registerHelper('formatRunner', function(selectionId) {
     let runner = Runners.findOne({selectionId: selectionId});
     if (runner) return runner.runnerName;
     return selectionId;
+});
+
+Template.registerHelper('formatStrategy', function(strategyRef) {
+    console.log(strategyRef);
+    let strategy = Strategies.findOne({strategyRef: strategyRef});
+    console.log(strategy)
+    if (strategy) return strategy.name;
+    return strategyRef;
 });
 
 Template.registerHelper('formatPrice', function(price) {
