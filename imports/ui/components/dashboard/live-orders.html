@@ -13,6 +13,7 @@
                 <th>Stake</th>
                 <th>Price</th>
                 <th class="d-none d-sm-table-cell">Status</th>
+                <th>Outcome</th>
             </tr>
             </thead>
             <tbody>
@@ -35,5 +36,6 @@
         <td>{{formatMoney sizeMatched}}</td>
         <td>{{formatPrice averagePriceMatched}}</td>
         <td class="d-none d-sm-table-cell">{{formatOrderStatus status}}</td>
+        <td>{{formatOutcome betOutcome}}</td>
     </tr>
 </template>
