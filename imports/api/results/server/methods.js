@@ -18,7 +18,8 @@ Meteor.methods({
                 {$unwind: "$lastPriceTraded"},
                 {$unwind: "$runner"},
                 {$unwind: "$winner"},
-                {$project: {_id: false, marketId: "$_id", venue: "$market.event.venue", marketName: "$market.marketName", selectionId: "$selectionId", runnerName: "$runner.runnerName", price: "$lastPriceTraded", won: "$won"}}
+                {$project: {_id: false, marketId: "$_id", marketStartTime: "$market.marketStartTime", venue: "$market.event.venue", marketName: "$market.marketName", selectionId: "$selectionId", runnerName: "$runner.runnerName", price: "$lastPriceTraded", won: "$won"}},
+                {$sort: {marketStartTime : -1}}
             ]
         );
     }

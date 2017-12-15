@@ -66,11 +66,15 @@ Template.registerHelper('formatStrategy', function(strategyRef) {
 });
 
 Template.registerHelper('formatPrice', function(price) {
-   return parseFloat(price).toFixed(2);
+    return parseFloat(price).toFixed(2);
 });
 
 Template.registerHelper('formatTime', function(date) {
     return moment(date).format('HH:mm');
+});
+
+Template.registerHelper('formatDateTime', function(date) {
+    return moment(date).format('DD-MMM-YYYY HH:mm')
 });
 
 Template.registerHelper('formatOrderStatus', function(orderStatus) {

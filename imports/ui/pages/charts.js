@@ -5,15 +5,14 @@ import './charts.html';
 Template.ChartsPage.onCreated(function chartsPageOnCreated() {
     this.autorun(() => {
         Meteor.call("getPortfolioPnlSeries", function(err, result) {
-            //console.log(result);
-            //Session.set("portfolioPnlSeries", result);
+            Session.set("portfolioPnlSeries", result);
         });
     });
 });
 
 Template.ChartsPage.helpers({
     portfolioPnlSeries() {
-        //Session.get("portfolioPnlSeries")
+        Session.get("portfolioPnlSeries")
     },
 });
 

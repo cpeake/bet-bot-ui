@@ -1,20 +1,26 @@
 <template name="ResultsPage">
-    <table class="table table-dark table-striped table-sm">
-        <thead>
-            <th>Market</th>
-            <th>Favourite</th>
-            <th>Price</th>
-            <th>Result</th>
-        </thead>
-        <tbody>
-        {{#each raceResults}}
-            <tr>
-                <td>{{venue}} {{marketName}}</td>
-                <td>{{runnerName}}</td>
-                <td>{{price}}</td>
-                <td>{{won}}</td>
-            </tr>
-        {{/each}}
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-dark table-striped table-sm">
+                <thead>
+                <th>Date/Time</th>
+                <th>Market</th>
+                <th>Favourite</th>
+                <th>Price</th>
+                <th>Result</th>
+                </thead>
+                <tbody>
+                {{#each raceResults}}
+                    <tr>
+                        <td>{{formatDateTime marketStartTime}}</td>
+                        <td>{{venue}} {{marketName}}</td>
+                        <td>{{runnerName}}</td>
+                        <td>{{price}}</td>
+                        <td>{{formatResult won}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </template>

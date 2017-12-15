@@ -5,7 +5,6 @@ import './results.html';
 Template.ResultsPage.onCreated(function resultsPageOnCreated() {
     this.autorun(() => {
         Meteor.call("getRaceResults", function(err, result) {
-            console.log(result);
             Session.set("raceResults", result);
         });
     });
@@ -13,10 +12,9 @@ Template.ResultsPage.onCreated(function resultsPageOnCreated() {
 
 Template.ResultsPage.helpers({
     raceResults() {
-        if (Session) {
-            console.log(Session);
-            console.log(Session.get("raceResults"));
-            Session.get("raceResults");
-        }
+        return Session.get("raceResults");
+    },
+    formatResult(won) {
+        return won ? "Won" : "Lost"
     },
 });
